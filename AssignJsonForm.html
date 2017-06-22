@@ -1,0 +1,57 @@
+
+<html>
+<head>
+<script src="angular.js"></script>
+<script>
+	var routeMod = angular.module("myrouteApp", []); 
+	routeMod.controller("myctrl", function($http,$log,$scope){
+        
+        
+    $scope.saveForm =  function() {
+        
+               $http.get('http://localhost:3000/student/1234').then(
+				function(response) {	                  
+					$scope.student =  response.data;
+                    $log.debug($scope.student);
+				},function errorCallback(response)
+               {              
+                    $log.debug("error");
+                });         
+        
+    }
+    
+        
+    });
+
+</script>
+</head>
+<body>
+	<div ng-app="myrouteApp" ng-controller="myctrl" >
+		<form name="studentform" ng-submit="saveForm()">
+		<table>
+			<tr>
+				<td>Student Name :</td>
+				<td><input type="text" ng-model="student.name" /></td>
+			</tr>
+			<tr>
+				<td>Age :</td>
+				<td><input type="number" min="1" max="100"
+					ng-model="student.age"  /></td>
+			</tr>
+			<tr>
+				<td>Student ID :</td>
+				<td><input type="number" min="100" ng-model="student.id"
+					 /></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" name="Save Form" /></td>				
+			</tr>
+
+		</table>
+        
+	</form>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+<html>
+<head>
+<script src="angular.js"></script>
+<script src="angular-route.js"></script>
+<script src="route_module.js"></script>
+    <script src="studentform.js"></script>
+    <script src="viewstudent.js"></script>
+    <script src="student_factory_mod.js"></script>
+<script>
+	/*var routeMod = angular.module("myrouteApp", ["ngRoute"]); 
+	
+	routeMod.config(function($routeProvider){ 
+	$routeProvider 
+	    .when("/", {templateUrl: "app1-home.htm"}) 
+	    .when("/studentform", {templateUrl: "studentform.html"}) 
+	    .when("/createClaim", {templateUrl: "app1-create-claim.htm"}); 
+	}); 
+	 */
+</script>
+</head>
+<body>
+	<div ng-app="myrouteApp">
+		<ul>
+			<li><a href="#/welcome">Home</a></li>
+			<li><a href="#viewstudent">View Student</a></li>
+			<li><a href="#studentform">Create Student</a></li>
+		</ul>
+		<div ng-view></div>
+	</div>
+</body>
+</html>

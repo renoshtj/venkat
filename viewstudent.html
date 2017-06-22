@@ -1,0 +1,54 @@
+<div ng-controller="viewStudentCtrl">
+    <table border="1">
+        <tr>
+        <td>Student Name</td>
+        <td>Age</td>
+        <td>ID</td>
+            <td>Delete</td>
+            <td>Edit</td>
+        </tr>
+    <tr ng-repeat="student in studentdata">
+        <td>{{student.name | uppercase}}</td>
+        <td>{{student.age}}</td>
+        <td>{{student.id}}</td>
+        <td><input type="button" value="Delete" ng-click="deleteStudent(student.id)"/></td>
+        <td><input type="button" value="Edit" ng-click="editStudent(student.id)"/></td>
+        </tr>
+    
+    </table>
+    
+    <div ng-show="editForm">
+    <form name="studentform" ng-submit="updateStudent()">
+    <table>
+			<tr>
+				<td>Student Name :</td>
+				<td><input type="text" ng-model="student.name" required /></td>
+			</tr>
+			<tr>
+				<td>Age :</td>
+				<td><input type="number" min="1" max="100"
+					ng-model="student.age" required /></td>
+			</tr>
+			<tr>
+				<td>Student ID :</td>
+				<td><input type="number" min="100" ng-model="student.id"
+					required /></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" name="Update" value = "Update"/></td>		
+        </tr>
+
+		</table>
+        
+    </form>
+        </div>
+    
+<div>
+    
+    <span>{{status}}</span>
+    </div>    
+    
+
+
+</div>

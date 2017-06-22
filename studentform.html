@@ -1,0 +1,31 @@
+<div ng-controller="myStudentCtrl">
+	<form name="studentform" ng-submit="saveForm()">
+		<table>
+			<tr>
+				<td>Student Name :</td>
+				<td><input type="text" ng-model="student.name" required /></td>
+			</tr>
+			<tr>
+				<td>Age :</td>
+				<td><input type="number" min="1" max="100"
+					ng-model="student.age" required /></td>
+			</tr>
+			<tr>
+				<td>Student ID :</td>
+				<td><input type="number" min="100" ng-model="student.id"
+					required /></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" name="Save Form" /></td>
+				<td><input type="button" value="Reset" /></td>
+			</tr>
+
+		</table>
+        
+	</form>
+<div >
+    Status : <span>{{SaveMessage}}</span>
+    
+    </div>
+</div>
